@@ -11,16 +11,15 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 
 public class Swing extends JFrame implements ActionListener {
 
-    private final int FRAME_WIDTH = 512;
-    private final int FRAME_HEIGHT = 512;
+    private final int FRAME_WIDTH = 500;
+    private final int FRAME_HEIGHT = 500;
     private final String FRAME_TITLE = "Swing";
-    private final int NUMBER_OF_COLORS = 8;
+    private final int NUMBER_OF_COLORS = 6;
     private final String BG_COLOR = "Background Color";
-    private final String FG_COLOR = "Foreground Color";
+    private final String FG_COLOR = "Square Color";
 
     private final List<Color> bgPalette = new ArrayList<>();
     private final List<Color> fgPalette = new ArrayList<>();
@@ -36,22 +35,58 @@ public class Swing extends JFrame implements ActionListener {
         pane.add(panel);
 
         Random rng = new Random();
-        for (int i = 0; i < NUMBER_OF_COLORS; i++) {
-            int red = 64 + rng.nextInt(128);
-            int green = 64 + rng.nextInt(128);
-            int blue = 64 + rng.nextInt(128);
-            Color color = new Color(red, green, blue);
-            bgPalette.add(color);
-        } // for
+//        for (int i = 0; i < NUMBER_OF_COLORS; i++) {
+//            int red = 64 + rng.nextInt(128);
+//            int green = 64 + rng.nextInt(128);
+//            int blue = 64 + rng.nextInt(128);
+//            Color color = new Color(red, green, blue);
+//            bgPalette.add(color);
+//        } // for
+//        this.panel.setBackground(bgPalette.get(0));
+
+        Color red = new Color(150,0,0);
+        Color orange = new Color(150,75,0);
+        Color yellow = new Color(170,160,0);
+        Color green = new Color(0,115,0);
+        Color blue = new Color(0,0,125);
+        Color purple = new Color(110,0,125);
+        Color white = new Color(255,255,255);
+        Color black = new Color(0,0,0);
+        bgPalette.add(red);
+        bgPalette.add(orange);
+        bgPalette.add(yellow);
+        bgPalette.add(green);
+        bgPalette.add(blue);
+        bgPalette.add(purple);
+        //bgPalette.add(black);
+        //bgPalette.add(white);
         this.panel.setBackground(bgPalette.get(0));
 
-        for (int i = 0; i < NUMBER_OF_COLORS; i++) {
-            int red = 32 + rng.nextInt(224);
-            int green = 32 + rng.nextInt(224);
-            int blue = 32 + rng.nextInt(224);
-            Color color = new Color(red, green, blue);
-            fgPalette.add(color);
-        } // for
+//        for (int i = 0; i < NUMBER_OF_COLORS; i++) {
+//            int r = 32 + rng.nextInt(224);
+//            int g = 32 + rng.nextInt(224);
+//            int b = 32 + rng.nextInt(224);
+//            Color color = new Color(r, g, b);
+//            fgPalette.add(color);
+//        } // for
+//        this.panel.setColor(fgPalette.get(0));
+
+        Color ltred = new Color(255,85,100);
+        Color ltorange = new Color(255,150,100);
+        Color ltyellow = new Color(255,220,100);
+        Color ltgreen = new Color(125,255,125);
+        Color ltblue = new Color(85,155,255);
+        Color ltpurple = new Color(200,155,255);
+        Color ltgray = new Color(200,200,200);
+        Color ltbrown = new Color(235,215,200);
+        fgPalette.add(ltred);
+        fgPalette.add(ltorange);
+        fgPalette.add(ltyellow);
+        fgPalette.add(ltgreen);
+        fgPalette.add(ltblue);
+        fgPalette.add(ltpurple);
+        //fgPalette.add(ltgray);
+        //fgPalette.add(ltbrown);
         this.panel.setColor(fgPalette.get(0));
         
         JMenuBar menuBar = new JMenuBar();
