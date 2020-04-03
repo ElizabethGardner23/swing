@@ -44,12 +44,12 @@ public class Swing extends JFrame implements ActionListener {
 //        } // for
 //        this.panel.setBackground(bgPalette.get(0));
 
-        Color red = new Color(150,0,0);
-        Color orange = new Color(150,75,0);
-        Color yellow = new Color(170,160,0);
-        Color green = new Color(0,115,0);
-        Color blue = new Color(0,0,125);
-        Color purple = new Color(110,0,125);
+        Color red = new Color(255,0,0);
+        Color orange = new Color(255,165,0);
+        Color yellow = new Color(255,255,0);
+        Color green = new Color(0,255,0);
+        Color blue = new Color(0,0,255);
+        Color purple = new Color(160,32,240);
         Color white = new Color(255,255,255);
         Color black = new Color(0,0,0);
         bgPalette.add(red);
@@ -71,12 +71,12 @@ public class Swing extends JFrame implements ActionListener {
 //        } // for
 //        this.panel.setColor(fgPalette.get(0));
 
-        Color ltred = new Color(255,85,100);
-        Color ltorange = new Color(255,150,100);
-        Color ltyellow = new Color(255,220,100);
-        Color ltgreen = new Color(125,255,125);
-        Color ltblue = new Color(85,155,255);
-        Color ltpurple = new Color(200,155,255);
+        Color ltred = new Color(240,128,128);
+        Color ltorange = new Color(255,160,122);
+        Color ltyellow = new Color(255,255,224);
+        Color ltgreen = new Color(144,238,144);
+        Color ltblue = new Color(173,216,230);
+        Color ltpurple = new Color(230,230,250);
         Color ltgray = new Color(200,200,200);
         Color ltbrown = new Color(235,215,200);
         fgPalette.add(ltred);
