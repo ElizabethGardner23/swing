@@ -10,7 +10,7 @@ package com.eonsahead.swing;
 public class Matrix {
 
     private final double[][] elements;
-    
+
     /**
      * Matrix() is a constructor which creates a new identity matrix.
      */
@@ -18,15 +18,15 @@ public class Matrix {
         this.elements = new double[4][4];
         this.identity();
     } // Matrix()
-    
+
     /**
      * The get method returns the element in a designated position (row, column)
      * in a matrix.
-     * 
+     *
      * @param row the row of the matrix in which the desired element is located
      * @param column the column of the matrix in which the desired element is
      * located
-     * @return the element in the designated row and column in the matrix 
+     * @return the element in the designated row and column in the matrix
      */
     public double get(int row, int column) {
         return this.elements[row][column];
@@ -35,11 +35,11 @@ public class Matrix {
     /**
      * The set method sets the element at the designated position (row, column)
      * to the designated new value.
-     * 
+     *
      * @param row the row of the matrix in which the element to be changed is
      * located
-     * @param column the column of the matrix in which the element to be
-     * changed is located
+     * @param column the column of the matrix in which the element to be changed
+     * is located
      * @param value the new value that the element at the position [row][column]
      * in the matrix is to be set to
      */
@@ -48,8 +48,8 @@ public class Matrix {
     } // set(int, int, double)
 
     /**
-     * The identity method produces the numbers needed for an identity matrix
-     * (a matrix with all zeros except for ones on the diagonal).
+     * The identity method produces the numbers needed for an identity matrix (a
+     * matrix with all zeros except for ones on the diagonal).
      */
     public final void identity() {
         for (int i = 0; i < 4; i++) {
@@ -67,7 +67,7 @@ public class Matrix {
     /**
      * The rotationX method rotates a matrix a designated amount about the
      * x-axis.
-     * 
+     *
      * @param angle a measure of how far to rotate the matrix about the x-axis
      */
     public void rotationX(double angle) {
@@ -77,11 +77,11 @@ public class Matrix {
         this.set(2, 1, Math.sin(angle));
         this.set(2, 2, Math.cos(angle));
     } // rotationX(double)
-    
+
     /**
      * The rotationY method rotates a matrix a designated amount about the
      * y-axis.
-     * 
+     *
      * @param angle a measure of how far to rotate the matrix about the y-axis
      */
     public void rotationY(double angle) {
@@ -89,13 +89,13 @@ public class Matrix {
         this.set(0, 0, Math.cos(angle));
         this.set(0, 2, Math.sin(angle));
         this.set(2, 0, -Math.sin(angle));
-        this.set(2, 2, Math.cos(angle));   
+        this.set(2, 2, Math.cos(angle));
     } // rotationY(double)
-    
+
     /**
      * The rotationZ method rotates a matrix a designated amount about the
      * z-axis.
-     * 
+     *
      * @param angle a measure of how far to rotate the matrix about the z-axis
      */
     public void rotationZ(double angle) {
@@ -105,11 +105,11 @@ public class Matrix {
         this.set(1, 0, Math.sin(angle));
         this.set(1, 1, Math.cos(angle));
     } // rotationZ(double)
-    
+
     /**
      * The scale method stretches or shrinks a matrix by a designated amount
      * along the x, y, and z axes.
-     * 
+     *
      * @param xFactor the amount that the matrix is stretched or shrunk along
      * the x-axis
      * @param yFactor the amount that the matrix is stretched or shrunk along
@@ -122,11 +122,11 @@ public class Matrix {
         this.elements[1][1] *= yFactor;
         this.elements[2][2] *= zFactor;
     } // scale(double, double, double)
-    
+
     /**
      * The translate method moves a matrix by a designated amount along the x,
      * y, and z axes.
-     * 
+     *
      * @param xFactor the distance that the matrix is moved along the x-axis
      * @param yFactor the distance that the matrix is moved along the y-axis
      * @param zFactor the distance that the matrix is moved along the z-axis
@@ -139,7 +139,7 @@ public class Matrix {
 
     /**
      * The multiply(Matrix) method multiplies one matrix by another.
-     * 
+     *
      * @param otherMatrix the matrix being multiplied
      * @return the matrix product of two matrices
      */
@@ -157,61 +157,48 @@ public class Matrix {
         } // for
         return product;
     } // multiply(Matrix)
-    
-        /**
-         * The multiply(vector) method multiplies a matrix by a vector.
-         * 
-         * @param vector the vector being multiplied
-         * @return the vector product of a matrix and vector
-         */
-        public String multiply(Vector vector) {
-        double matrix00 = this.elements[0][0];
-        double matrix01 = this.elements[0][1];
-        double matrix02 = this.elements[0][2];
-        double matrix03 = this.elements[0][3];
-        double matrix10 = this.elements[1][0];
-        double matrix11 = this.elements[1][1];
-        double matrix12 = this.elements[1][2];
-        double matrix13 = this.elements[1][3];
-        double matrix20 = this.elements[2][0];
-        double matrix21 = this.elements[2][1];
-        double matrix22 = this.elements[2][2];
-        double matrix23 = this.elements[2][3];
-        double matrix30 = this.elements[3][0];
-        double matrix31 = this.elements[3][1];
-        double matrix32 = this.elements[3][2];
-        double matrix33 = this.elements[3][3];
-        double vector0 = vector.getX();
-        double vector1 = vector.getY();
-        double vector2 = vector.getZ();
-        double vector3 = vector.getH();
-        double p0 = (matrix00 * vector0) + (matrix01 * vector1) + 
-                (matrix02 * vector2) + (matrix03 * vector3);
-        double p1 = (matrix10 * vector0) + (matrix11 * vector1) + 
-                (matrix12 * vector2) + (matrix13 * vector3);
-        double p2 = (matrix20 * vector0) + (matrix21 * vector1) + 
-                (matrix22 * vector2) + (matrix23 * vector3);
-        double p3 = (matrix30 * vector0) + (matrix31 * vector1) + 
-                (matrix32 * vector2) + (matrix33 * vector3);
-        return "[(" + p0 + "), (" + p1 + "), (" + p2 + "), (" + p3 + ")]";
-    } // multiply(Vector4D)
+
+    /**
+     * The multiply(vector) method multiplies a matrix by a vector.
+     *
+     * @param vector the vector being multiplied
+     * @return the vector product of a matrix and vector
+     */
+    public Vector multiply(Vector v) {
+        double x = 0.0;
+        for (int i = 0; i < 3; i++) {
+            x += this.get(0, i) * v.get(i);
+        } // for
+
+        double y = 0.0;
+        for (int i = 0; i < 3; i++) {
+            y += this.get(1, i) * v.get(i);
+        } // for
+
+        double z = 0.0;
+        for (int i = 0; i < 3; i++) {
+            z += this.get(2, i) * v.get(i);
+        } // for
+
+        return new Vector(x, y, z);
+    } // multiply(Vector)
 
     /**
      * The rowToString method turns a row in a matrix to a string to simplify
      * the toString method.
-     * 
+     *
      * @param row a row in a matrix
      * @return a string containing the numbers in the matrix row separated by
      * commas and enclosed in parentheses
-     */    
+     */
     private String rowToString(int row) {
         StringBuilder result = new StringBuilder();
         result.append("( ");
         for (int i = 0; i < 3; i++) {
-            result.append(this.get( row, i));
+            result.append(this.get(row, i));
             result.append(", ");
         } // for
-        result.append(this.get( row, 3 ));
+        result.append(this.get(row, 3));
         result.append(" )");
         return result.toString();
     } // rowToString(int)
@@ -219,7 +206,7 @@ public class Matrix {
     /**
      * The toString method turns a matrix to a string by using the rowToString
      * method.
-     * 
+     *
      * @return a string containing the numbers in a matrix by row separated by
      * commas and enclosed by brackets
      */
@@ -236,12 +223,13 @@ public class Matrix {
 
     /**
      * The main method tests some of the other methods in this class.
-     * @param args 
+     *
+     * @param args
      */
     public static void main(String[] args) {
         Matrix identity = new Matrix();
         System.out.println("identity = " + identity);
-        
+
         Matrix otherMatrix = new Matrix();
         otherMatrix.elements[0][0] = 1.1;
         otherMatrix.elements[0][1] = 2.2;
@@ -261,7 +249,7 @@ public class Matrix {
         otherMatrix.elements[3][3] = 16.16;
         System.out.println("other matrix = " + otherMatrix);
 
-        Matrix product = identity.multiply(otherMatrix );
+        Matrix product = identity.multiply(otherMatrix);
         System.out.println("product = " + product);
 
         Matrix ccw = new Matrix();
@@ -274,7 +262,7 @@ public class Matrix {
 
         Matrix netRotation = ccw.multiply(cw);
         System.out.println("net rotation = " + netRotation);
-        
+
         Vector vector = new Vector(1, 2, 3);
         System.out.print("vector = " + vector);
     } // main(String [])

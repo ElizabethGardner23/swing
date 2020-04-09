@@ -34,7 +34,7 @@ public class Swing extends JFrame implements ActionListener {
         this.panel = new SwingPanel();
         pane.add(panel);
 
-        Random rng = new Random();
+//        Random rng = new Random();
 //        for (int i = 0; i < NUMBER_OF_COLORS; i++) {
 //            int red = 64 + rng.nextInt(128);
 //            int green = 64 + rng.nextInt(128);
