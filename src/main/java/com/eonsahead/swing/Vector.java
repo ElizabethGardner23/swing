@@ -4,7 +4,7 @@ package com.eonsahead.swing;
  * Model and perform operations on a 4D vector.
  *
  * @author Elizabeth Gardner
- * @version 8 April 2020
+ * @version 10 April 2020
  */
 public class Vector {
 
@@ -14,16 +14,6 @@ public class Vector {
     private double y;
     private double z;
     private double h;
-
-    /**
-     * The getH method finds and returns the value of the fourth element
-     * (homogeneous coordinate) in a four element vector.
-     *
-     * @return the vector's homogeneous coordinate value
-     */
-    public double getH() {
-        return this.h;
-    } // getRGBA()
 
     /**
      * Vector() is a constructor which creates a new 4D vector with all four
@@ -107,10 +97,20 @@ public class Vector {
     public double getZ() {
         return this.z;
     } // getZ()
+    
+    /**
+     * The getH method finds and returns the value of the fourth element
+     * (homogeneous coordinate) in a four element vector.
+     *
+     * @return the vector's homogeneous coordinate value
+     */
+    public double getH() {
+        return this.h;
+    } // getH()
 
     /**
-     * The set(int, double) method changes the value at the designated index in a vector to a
-     * designated new value.
+     * The set(int, double) method changes the value at the designated index in
+     * a vector to a designated new value.
      *
      * @param index the position of the value in the vector to be changed
      * @param value the value the designated element is to be changed to
@@ -122,7 +122,7 @@ public class Vector {
     /**
      * The set(Vector) method establishes all four parameters of a four element
      * vector.
-     * 
+     *
      * @param v a four element vector
      */
     public void set(Vector v) {
@@ -148,7 +148,7 @@ public class Vector {
 
     /**
      * The cross method calculates the cross product of two vectors.
-     * 
+     *
      * @param v the vector being multiplied
      * @return the vector cross product of two vectors
      */
@@ -165,10 +165,17 @@ public class Vector {
         return new Vector(new1, new2, new3);
     } // cross(Vector)
 
+    public Vector subtract(Vector v) {
+        double x = this.get(0) - v.get(0);
+        double y = this.get(1) - v.get(1);
+        double z = this.get(2) - v.get(2);
+        return new Vector(x, y, z);
+    } // subtract(Vector)
+
     /**
      * The magnitude method calculates the magnitude of a vector using the dot
      * method.
-     * 
+     *
      * @return the double magnitude of the vector
      */
     public double magnitude() {
@@ -179,7 +186,7 @@ public class Vector {
      * The normalize method modifies a vector so that it has the same direction
      * but a length (magnitude) equal to one by dividing the x, y, and z
      * coordinates by the magnitude calculated in the magnitude method.
-     * 
+     *
      * @return a vector with a length of one
      */
     public Vector normalize() {
@@ -192,7 +199,7 @@ public class Vector {
     /**
      * The toString method converts a vector to a string in which the elements
      * are separated by commas and enclosed in parentheses.
-     * 
+     *
      * @return a string representation of a four element vector
      */
     @Override

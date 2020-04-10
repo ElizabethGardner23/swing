@@ -12,19 +12,33 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+/**
+ * The Swing class sets up the window, background and foreground color menus,
+ * and color options.
+ * 
+ * @author Elizabeth Gardner
+ * @version 10 April 2020
+ */
 public class Swing extends JFrame implements ActionListener {
 
-    private final int FRAME_WIDTH = 500;
-    private final int FRAME_HEIGHT = 500;
-    private final String FRAME_TITLE = "Swing";
+    // Determines the width and height of the window, the name at the top of the
+    // window, the number of color options, and the title of the color menus.
+    private final int FRAME_WIDTH = 400;
+    private final int FRAME_HEIGHT = 400;
+    private final String FRAME_TITLE = "Modeling a Shape";
     private final int NUMBER_OF_COLORS = 6;
-    private final String BG_COLOR = "Background Color";
-    private final String FG_COLOR = "Square Color";
+    private final String BG_COLOR = "Color of Background";
+    private final String FG_COLOR = "Color of Shape";
 
+    // Creates lists to hold the color options for the background and shape
     private final List<Color> bgPalette = new ArrayList<>();
     private final List<Color> fgPalette = new ArrayList<>();
     private final SwingPanel panel;
 
+    /**
+     * The Swing constructor creates the window, the menu, and the color options
+     * for the background and shape.
+     */
     public Swing() {
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.setTitle(FRAME_TITLE);
@@ -113,10 +127,20 @@ public class Swing extends JFrame implements ActionListener {
             item.setActionCommand(label);
             fgColorMenu.add(item);
         } // for
-
         this.setVisible(true);
+        
+        // new menu - no function
+        JMenu newMenu = new JMenu();
+        menuBar.add(newMenu);
     } // Swing()
 
+    /**
+     * The actionPerformed method changes the color of the background or
+     * foreground as selected.
+     * 
+     * @param event the selection of a color on the background or foreground
+     * color menu
+     */
     @Override
     public void actionPerformed(ActionEvent event) {
         String actionCommand = event.getActionCommand();
@@ -135,8 +159,12 @@ public class Swing extends JFrame implements ActionListener {
         } // if
     } // actionPerformed( ActionEvent )
 
+    /**
+     * The main method executes the constructor.
+     * 
+     * @param args 
+     */
     public static void main(String[] args) {
         Swing swing = new Swing();
     } // main( String [] )
-
 } // Swing

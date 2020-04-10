@@ -5,7 +5,7 @@ package com.eonsahead.swing;
  * translating, and multiplying by another matrix and by a vector.
  *
  * @author Elizabeth Gardner
- * @version 7 April 2020
+ * @version 10 April 2020
  */
 public class Matrix {
 
