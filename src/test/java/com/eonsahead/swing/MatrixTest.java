@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MatrixTest {
-    
+
     private static final double EPSILON = 1E-8;
     private final Random rng = new Random();
 
@@ -43,10 +43,10 @@ public class MatrixTest {
             for (int j = 0; j < 4; j++) {
                 double actual = instance.get(i, j);
                 if (i == j) {
-                    assertEquals(diagonalElement, actual, 1E-8);
+                    assertEquals(diagonalElement, actual, EPSILON);
                 } // if
                 else {
-                    assertEquals(nonDiagonalElement, actual, 1E-8);
+                    assertEquals(nonDiagonalElement, actual, EPSILON);
                 } // else
             } // for
         } // for
@@ -54,43 +54,49 @@ public class MatrixTest {
 
     @Test
     public void testRotationX() {
-        System.out.println("rotationX");
         Matrix identity = new Matrix();
         Matrix ccw = new Matrix();
         Matrix cw = new Matrix();
-        ccw.rotationX(Math.PI/4);
-        cw.rotationX(-Math.PI/4);
+        ccw.rotationX(Math.PI / 4);
+        cw.rotationX(-Math.PI / 4);
         Matrix netRotation = ccw.multiply(cw);
         assertEquals(netRotation, identity);
     } // testRotationX()
 
     @Test
     public void testRotationY() {
-        System.out.println("rotationY");
-        double angle = 0.0;
-        Matrix instance = new Matrix();
-        instance.rotationY(angle);
-        fail("The test case is a prototype.");
+        Matrix identity = new Matrix();
+        Matrix ccw = new Matrix();
+        Matrix cw = new Matrix();
+        ccw.rotationY(Math.PI / 4);
+        cw.rotationY(-Math.PI / 4);
+        Matrix netRotation = ccw.multiply(cw);
+        assertEquals(netRotation, identity);
     } // testRotationY()
 
     @Test
     public void testRotationZ() {
-        System.out.println("rotationZ");
-        double angle = 0.0;
-        Matrix instance = new Matrix();
-        instance.rotationZ(angle);
-        fail("The test case is a prototype.");
+        Matrix identity = new Matrix();
+        Matrix ccw = new Matrix();
+        Matrix cw = new Matrix();
+        ccw.rotationZ(Math.PI / 4);
+        cw.rotationZ(-Math.PI / 4);
+        Matrix netRotation = ccw.multiply(cw);
+        assertEquals(netRotation, identity);
     } // testRotationZ()
 
     @Test
     public void testScale() {
-        System.out.println("scale");
-        double xFactor = 0.0;
-        double yFactor = 0.0;
-        double zFactor = 0.0;
+        Matrix identity = new Matrix();
+        identity.set(0, 0, 2.0);
+        identity.set(1, 1, 2.0);
+        identity.set(2, 2, 2.0);
+        double xFactor = 2.0;
+        double yFactor = 2.0;
+        double zFactor = 2.0;
         Matrix instance = new Matrix();
         instance.scale(xFactor, yFactor, zFactor);
-        fail("The test case is a prototype.");
+        assertEquals(instance, identity);
     } // testScale()
 
     @Test
@@ -98,22 +104,22 @@ public class MatrixTest {
         double deltaX = this.rng.nextDouble();
         double deltaY = this.rng.nextDouble();
         double deltaZ = this.rng.nextDouble();
-        
+
         Matrix forward = new Matrix();
         forward.translate(deltaX, deltaY, deltaZ);
 
         Matrix backward = new Matrix();
         backward.translate(-deltaX, -deltaY, -deltaZ);
-        
+
         Matrix product = forward.multiply(backward);
         Matrix identity = new Matrix();
         identity.identity();
-        
-        for( int i = 0; i < 4; i++ ) {
-            for( int j = 0; j < 4; j++ ) {
-                double a = product.get(i,j);
-                double b = identity.get(i,j);
-                assertEquals( a, b, EPSILON);
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                double a = product.get(i, j);
+                double b = identity.get(i, j);
+                assertEquals(a, b, EPSILON);
             } // for
         } // for
     } // testTranslate()
@@ -122,7 +128,7 @@ public class MatrixTest {
     public void testMultiply_Matrix() {
         Matrix identity = new Matrix();
         identity.identity();
-        
+
         Matrix multiplier = new Matrix();
         multiplier.identity();
         for (int i = 0; i < 4; i++) {
@@ -132,33 +138,41 @@ public class MatrixTest {
             } // for
         } // for
 
-        Matrix product = identity.multiply( multiplier );
-        
-        for( int i = 0; i < 4; i++ ) {
-            for( int j = 0; j < 4; j++ ) {
+        Matrix product = identity.multiply(multiplier);
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
                 double a = multiplier.get(i, j);
                 double b = product.get(i, j);
-                assertEquals( a, b, EPSILON );
+                assertEquals(a, b, EPSILON);
             } // for
         } // for
     } // testMultiply_Matrix()
 
-//    @Test
-//    public void testMultiply_Vector() {
-//        Vector u = new Vector( 1.0, 0.0, 0.0 );
-//        Matrix r = new Matrix();
-//        r.rotationZ( Math.PI/4 );
-//        
-//        Vector v = r.multiply(u);
-//        
-//        double vx = v.get( 0 );
-//        double vy = v.get( 1 );
-//        double vz = v.get( 2 );
-//        
-//        double expectedResult = Math.sqrt(2.0)/2;
-//        
-//        assertEquals( vx, expectedResult, EPSILON );
-//        assertEquals( vy, expectedResult, EPSILON );
-//        assertEquals( vz, 0.0, EPSILON );
-//    } // testMultiply_Vector()
+    @Test
+    public void testMultiply_Vector() {
+        Vector u = new Vector(1.0, 0.0, 0.0);
+        Matrix r = new Matrix();
+        r.rotationZ(Math.PI / 4);
+
+        Vector v = r.multiply(u);
+
+        double vx = v.get(0);
+        double vy = v.get(1);
+        double vz = v.get(2);
+
+        double expectedResult = Math.sqrt(2.0) / 2;
+
+        assertEquals(vx, expectedResult, EPSILON);
+        assertEquals(vy, expectedResult, EPSILON);
+        assertEquals(vz, 0.0, EPSILON);
+    } // testMultiply_Vector()
+    
+    @Test
+    public void testToString() {
+        Matrix identity = new Matrix();
+        String expResult = "[(1.0, 0.0, 0.0, 0.0)(0.0, 1.0, 0.0, 0.0)(0.0, 0.0, 1.0, 0.0)(0.0, 0.0, 0.0, 1.0)]";
+        String result = identity.toString();
+        assertEquals(expResult, result);
+    } // testToString()
 } // MatrixTest

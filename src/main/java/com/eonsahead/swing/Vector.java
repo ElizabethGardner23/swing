@@ -140,11 +140,10 @@ public class Vector {
      */
     public double dot(Vector v) {
         double xProduct = this.getX() * v.getX();
-        double yProduct = this.y * v.getY();
+        double yProduct = this.getY() * v.getY();
         double zProduct = this.getZ() * v.getZ();
-        double hProduct = this.h * v.getH();
-        return xProduct + yProduct + zProduct + hProduct;
-    } // dot(Vector4D)
+        return xProduct + yProduct + zProduct;
+    } // dot(Vector)
 
     /**
      * The cross method calculates the cross product of two vectors.
@@ -153,12 +152,12 @@ public class Vector {
      * @return the vector cross product of two vectors
      */
     public Vector cross(Vector v) {
-        double a1 = this.x;
-        double a2 = this.y;
-        double a3 = this.z;
-        double b1 = v.x;
-        double b2 = v.y;
-        double b3 = v.z;
+        double a1 = v.x;
+        double a2 = v.y;
+        double a3 = v.z;
+        double b1 = this.x;
+        double b2 = this.y;
+        double b3 = this.z;
         double new1 = (a2 * b3) - (a3 * b2);
         double new2 = (a3 * b1) - (a1 * b3);
         double new3 = (a1 * b2) - (a2 * b1);

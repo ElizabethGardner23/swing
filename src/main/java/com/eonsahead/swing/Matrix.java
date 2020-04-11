@@ -193,13 +193,13 @@ public class Matrix {
      */
     private String rowToString(int row) {
         StringBuilder result = new StringBuilder();
-        result.append("( ");
+        result.append("(");
         for (int i = 0; i < 3; i++) {
             result.append(this.get(row, i));
             result.append(", ");
         } // for
         result.append(this.get(row, 3));
-        result.append(" )");
+        result.append(")");
         return result.toString();
     } // rowToString(int)
 
