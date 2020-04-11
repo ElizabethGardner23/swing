@@ -4,10 +4,6 @@ import java.util.Random;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- *
- * @author eliza
- */
 public class MatrixTest {
     
     private static final double EPSILON = 1E-8;
@@ -165,5 +161,4 @@ public class MatrixTest {
 //        assertEquals( vy, expectedResult, EPSILON );
 //        assertEquals( vz, 0.0, EPSILON );
 //    } // testMultiply_Vector()
-
-}
+} // MatrixTest

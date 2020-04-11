@@ -49,7 +49,7 @@ public class Vector {
      * @param choice either 0 to select the x coordinate, 1 to select the y
      * coordinate, 2 to select the z coordinate, or 3 to select the homogeneous
      * coordinate of the vector
-     * @return
+     * @return either the x, y, z, or homogeneous coordinate
      */
     public double get(int choice) {
         double result = -1;
@@ -97,7 +97,7 @@ public class Vector {
     public double getZ() {
         return this.z;
     } // getZ()
-    
+
     /**
      * The getH method finds and returns the value of the fourth element
      * (homogeneous coordinate) in a four element vector.
@@ -165,6 +165,25 @@ public class Vector {
         return new Vector(new1, new2, new3);
     } // cross(Vector)
 
+    /**
+     * The add method adds two vectors.
+     * 
+     * @param v the vector being added
+     * @return the vector sum of two vectors
+     */
+    public Vector add(Vector v) {
+        double x = this.get(0) + v.get(0);
+        double y = this.get(1) + v.get(1);
+        double z = this.get(2) + v.get(2);
+        return new Vector(x, y, z);
+    } // subtract(Vector)
+
+    /**
+     * The subtract method subtracts one vector from another.
+     * 
+     * @param v the vector being subtracted
+     * @return the vector difference of two vectors
+     */
     public Vector subtract(Vector v) {
         double x = this.get(0) - v.get(0);
         double y = this.get(1) - v.get(1);
