@@ -130,7 +130,7 @@ public class Swing extends JFrame implements ActionListener {
         this.setVisible(true);
         
         // new menu - no function
-        JMenu newMenu = new JMenu();
+        JMenu newMenu = new JMenu("Hello World!");
         menuBar.add(newMenu);
     } // Swing()
 

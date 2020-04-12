@@ -32,9 +32,9 @@ public class SwingPanel extends JPanel implements ActionListener {
 //    private double centerY = 0.0;
 //    private final double minorRadius = 0.2;
 //    private final double majorRadius = 0.3;
-    private double deltaX = Math.random() / 20;
-    private double deltaY = Math.random() / 20;
-    private double deltaAngle = 2 * Math.PI / 180;
+    private final double deltaX = Math.random() / 20;
+    private final double deltaY = Math.random() / 20;
+    private final double deltaAngle = 2 * Math.PI / 180;
 //    private double phase = 0.0;
     private Shape shape;
 
@@ -61,15 +61,17 @@ public class SwingPanel extends JPanel implements ActionListener {
 //        double r1 = this.majorRadius;
 //        this.shape = makeStar(p, x, y, r0, r1);
 //        this.poly = new Polygon3D(5, 0.6);
-        this.prism = new Prism(9, 0.8, 0.6);
+
+        // determines the size and shape of the prism's faces
+        this.prism = new Prism(7, 0.5, 0.75);
         Matrix a = new Matrix();
-        a.rotationX(Math.PI / 112);
+        a.rotationX(Math.PI / 500);
 
         Matrix b = new Matrix();
-        b.rotationY(Math.PI / 144);
+        b.rotationY(Math.PI / 250);
 
         Matrix c = new Matrix();
-        c.rotationZ(Math.PI / 80);
+        c.rotationZ(Math.PI / 100);
 
         this.spinner = a.multiply(b).multiply(c);
 
