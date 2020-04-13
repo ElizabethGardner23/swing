@@ -112,7 +112,7 @@ public class Polygon3D {
         } // if
 
         return faces;
-    } // makeSleeve( Polygon3D, Polygon3D )
+    } // makeSleeve(Polygon3D)
 
     /**
      * The transform method changes the position of the vertices by multiplying

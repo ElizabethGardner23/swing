@@ -15,7 +15,7 @@ import javax.swing.JMenuItem;
 /**
  * The Swing class sets up the window, background and foreground color menus,
  * and color options.
- * 
+ *
  * @author Elizabeth Gardner
  * @version 10 April 2020
  */
@@ -57,15 +57,14 @@ public class Swing extends JFrame implements ActionListener {
 //            bgPalette.add(color);
 //        } // for
 //        this.panel.setBackground(bgPalette.get(0));
-
-        Color red = new Color(255,0,0);
-        Color orange = new Color(255,165,0);
-        Color yellow = new Color(255,255,0);
-        Color green = new Color(0,255,0);
-        Color blue = new Color(0,0,255);
-        Color purple = new Color(160,32,240);
-        Color white = new Color(255,255,255);
-        Color black = new Color(0,0,0);
+        Color red = new Color(255, 0, 0);
+        Color orange = new Color(255, 165, 0);
+        Color yellow = new Color(255, 255, 0);
+        Color green = new Color(0, 255, 0);
+        Color blue = new Color(0, 0, 255);
+        Color purple = new Color(160, 32, 240);
+        Color white = new Color(255, 255, 255);
+        Color black = new Color(0, 0, 0);
         bgPalette.add(red);
         bgPalette.add(orange);
         bgPalette.add(yellow);
@@ -84,15 +83,14 @@ public class Swing extends JFrame implements ActionListener {
 //            fgPalette.add(color);
 //        } // for
 //        this.panel.setColor(fgPalette.get(0));
-
-        Color ltred = new Color(240,128,128);
-        Color ltorange = new Color(255,160,122);
-        Color ltyellow = new Color(255,255,224);
-        Color ltgreen = new Color(144,238,144);
-        Color ltblue = new Color(173,216,230);
-        Color ltpurple = new Color(230,230,250);
-        Color ltgray = new Color(200,200,200);
-        Color ltbrown = new Color(235,215,200);
+        Color ltred = new Color(240, 128, 128);
+        Color ltorange = new Color(255, 160, 122);
+        Color ltyellow = new Color(255, 255, 224);
+        Color ltgreen = new Color(144, 238, 144);
+        Color ltblue = new Color(173, 216, 230);
+        Color ltpurple = new Color(230, 230, 250);
+        Color ltgray = new Color(200, 200, 200);
+        Color ltbrown = new Color(235, 215, 200);
         fgPalette.add(ltred);
         fgPalette.add(ltorange);
         fgPalette.add(ltyellow);
@@ -102,7 +100,7 @@ public class Swing extends JFrame implements ActionListener {
         //fgPalette.add(ltgray);
         //fgPalette.add(ltbrown);
         this.panel.setColor(fgPalette.get(0));
-        
+
         JMenuBar menuBar = new JMenuBar();
         this.setJMenuBar(menuBar);
 
@@ -128,7 +126,7 @@ public class Swing extends JFrame implements ActionListener {
             fgColorMenu.add(item);
         } // for
         this.setVisible(true);
-        
+
         // new menu - no function
         JMenu newMenu = new JMenu("Hello World!");
         menuBar.add(newMenu);
@@ -137,7 +135,7 @@ public class Swing extends JFrame implements ActionListener {
     /**
      * The actionPerformed method changes the color of the background or
      * foreground as selected.
-     * 
+     *
      * @param event the selection of a color on the background or foreground
      * color menu
      */
@@ -157,14 +155,14 @@ public class Swing extends JFrame implements ActionListener {
             int index = Integer.parseInt(suffix);
             this.panel.setColor(fgPalette.get(index));
         } // if
-    } // actionPerformed( ActionEvent )
+    } // actionPerformed(ActionEvent)
 
     /**
      * The main method executes the constructor.
-     * 
-     * @param args 
+     *
+     * @param args
      */
     public static void main(String[] args) {
         Swing swing = new Swing();
-    } // main( String [] )
+    } // main(String [])
 } // Swing

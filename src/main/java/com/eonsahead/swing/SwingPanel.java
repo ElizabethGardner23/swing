@@ -17,11 +17,10 @@ import javax.swing.Timer;
 /**
  * The SwingPanel class creates a prism, rotates it in three dimensions, and
  * changes its shading as it moves in relation to the light source.
- * 
+ *
  * @author Elizabeth Gardner
  * @version 10 April 2020
  */
-
 public class SwingPanel extends JPanel implements ActionListener {
 // a SwingPanel is a kind of JPanel
 // and
@@ -61,9 +60,9 @@ public class SwingPanel extends JPanel implements ActionListener {
 //        double r1 = this.majorRadius;
 //        this.shape = makeStar(p, x, y, r0, r1);
 //        this.poly = new Polygon3D(5, 0.6);
-
         // determines the size and shape of the prism's faces
-        this.prism = new Prism(7, 0.5, 0.75);
+        this.prism = new Prism(7, 0.75, 0.75);
+        //this.cone = new Cone(3);
         Matrix a = new Matrix();
         a.rotationX(Math.PI / 500);
 
@@ -80,7 +79,7 @@ public class SwingPanel extends JPanel implements ActionListener {
 
     /**
      * The getColor method is an accessor that returns a color.
-     * 
+     *
      * @return a color
      */
     public Color getColor() {
@@ -89,7 +88,7 @@ public class SwingPanel extends JPanel implements ActionListener {
 
     /**
      * The setColor method is a mutator that changes one color to another.
-     * 
+     *
      * @param c a new color
      */
     public void setColor(Color c) {
@@ -98,7 +97,7 @@ public class SwingPanel extends JPanel implements ActionListener {
 
     /**
      * The paintComponent method controls the coloring/shading of the prism.
-     * 
+     *
      * @param g a graphic
      */
     @Override
@@ -173,11 +172,11 @@ public class SwingPanel extends JPanel implements ActionListener {
                 g2D.fill(s);
             } // if
         } // for
-    } // paintComponent( Graphics )
+    } // paintComponent(Graphics)
 
     /**
      * The makeStar method creates a star with a designated number of points.
-     * 
+     *
      * @param points the number of points in the star
      * @param centerX the x-coordinate of the center of the star
      * @param centerY the y-coordinate of the center of the star
@@ -212,12 +211,12 @@ public class SwingPanel extends JPanel implements ActionListener {
         } // for
         star.closePath();
         return star;
-    } // makeStar()
+    } // makeStar(int, double, double, double, double)
 
     /**
      * The actionPerformed method rotates the prism and repaints the frame.
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @Override
     public void actionPerformed(ActionEvent event) {
@@ -247,5 +246,5 @@ public class SwingPanel extends JPanel implements ActionListener {
 //        this.poly.transform(spinner);
         this.prism.transform(spinner);
         this.repaint();
-    } // actionPerformed( ActionEvent )
+    } // actionPerformed(ActionEvent)
 } // SwingPanel

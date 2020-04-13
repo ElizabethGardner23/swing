@@ -116,7 +116,7 @@ public class Prism {
         v2 = this.bottom.get(0);
         p = new Polygon3D(v0, v1, v2);
         this.faces.add(p);
-    } // Prism()
+    } // Prism(int, double, double)
 
     /**
      * The transform method moves the prism by multiplying the vectors that
