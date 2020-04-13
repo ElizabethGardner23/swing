@@ -39,7 +39,7 @@ public class MenuListener implements ActionListener {
         this.prefix = prefix;
         this.palette = palette;
         this.panel = panel;
-    } // MenuListener()
+    } // MenuListener(int, String, List<Color>)
 
     /**
      * The actionPerformed method changes the color of the background or
@@ -63,5 +63,5 @@ public class MenuListener implements ActionListener {
                 this.panel.setColor(this.palette.get(index));
             } // else if
         } // if
-    } // actionPerformed( ActionEvent )
+    } // actionPerformed(ActionEvent)
 } // MenuListener

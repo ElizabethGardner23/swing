@@ -175,7 +175,7 @@ public class Vector {
         double y = this.get(1) + v.get(1);
         double z = this.get(2) + v.get(2);
         return new Vector(x, y, z);
-    } // subtract(Vector)
+    } // add(Vector)
 
     /**
      * The subtract method subtracts one vector from another.

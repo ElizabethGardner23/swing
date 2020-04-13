@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class Cone {
     
-//    The idea for the cone class is that it basically turns a prism to a cone
+//    The idea for the Cone class is that it basically turns a prism into a cone
 //    by using a polygon with 360 sides (so it looks like a circle) as the base
 //    and a polygon with 360 sides and a radius of 0 (so it acts as a point) as
 //    the second "face." I haven't had much time to develop this, so the cone is
